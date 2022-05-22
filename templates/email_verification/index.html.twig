@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRM E-Mail Validierung{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper {
+        margin: 1em auto;
+        max-width: 800px;
+        width: 95%;
+        font: 18px/1.5 sans-serif;
+    }
+
+    .example-wrapper code {
+        background: #F5F5F5;
+        padding: 2px 6px;
+    }
+</style>
+
+<div class="example-wrapper">
+    <h1>Sehr geehrter Herr/Frau {{ name }},</h1>
+
+    <p>ihre Anfrage ist erfolgreich eingegangen.</p>
+
+    {% if verification_type is same as(0) %}
+    <p>Ihre E-Mail-Adresse wurde aus unserem System gelöscht.</p>
+    {% elseif verification_type is same as(1) %}
+    <p>Vielen Dank für die Bestätigung Ihrer E-Mail-Adresse.</p>
+    {% endif %}
+
+    <p>Mit freundlichen Grüßen</p>
+</div>
+{% endblock %}
